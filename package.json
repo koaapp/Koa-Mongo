@@ -6,7 +6,7 @@
   "scripts": {
     "test": "jest --verbose --runInBand --detectOpenHandles",
     "test:watch": "npm run test -- --watch --detectOpenHandles",
-    "start": "nodemon index.js",
+    "start": "nodemon routes/index.js",
     "lint": "eslint .",
     "pretest": "npm run lint"
   },
