@@ -1,5 +1,5 @@
 const Koa = require('koa');
-// const Router = require('koa-router');
+const Router = require('koa-router');
 const Logger = require('koa-logger');
 const Cors = require('@koa/cors');
 const BodyParser = require('koa-bodyparser');
@@ -7,7 +7,7 @@ const Helmet = require('koa-helmet');
 const respond = require('koa-respond');
 
 const app = new Koa();
-// const router = new Router();
+const router = new Router();
 
 app.use(Helmet());
 

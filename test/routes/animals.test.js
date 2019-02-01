@@ -14,7 +14,7 @@ describe('animal controller', () => {
   });
 
   test('posts an animal', async() => {
-    const res = await request(app)
+    const res = await request(app.callback())
       .post('/animals')
       .send({
         species: 'eeyore',
