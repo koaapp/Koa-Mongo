@@ -5,6 +5,7 @@ const Cors = require('@koa/cors');
 const BodyParser = require('koa-bodyparser');
 const Helmet = require('koa-helmet');
 const respond = require('koa-respond');
+// const mongoose = require('mongoose');
 
 const app = new Koa();
 const router = new Router();
@@ -24,11 +25,23 @@ app.use(BodyParser({
     ctx.throw('body parse error', 422);
   }
 }));
+app.use(async(ctx, next) => {
+  ctx.status = 200;
+  console.log('Setting status');
+  await next();
+});
+
+app.use((ctx) => {
+  console.log('Setting body');
+  ctx.body = 'Hello from the otherside';
+});
 
 app.use(respond());
 
-// require('./routes')(router);
-// app.use(router.routes());
-// app.use(router.allowedMethods());
+require('./routes')(router);
+app.use(router.routes());
+app.use(router.allowedMethods()); 
+
+// mongoose.connect(process.env.DATABASE);
 
 module.exports = app;

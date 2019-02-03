@@ -21,6 +21,7 @@ describe('animal controller', () => {
         group: 'herbivore',
         size: 'large'
       });
+      console.log('response', app.callback());
     expect(res.body).toEqual({
       _id: expect.any(String),
       species: 'eeyore',
